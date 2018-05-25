@@ -58,12 +58,11 @@ public class Main {
     return "index";
   }
 
- @RequestMapping("/hello")
-   String hello(Map<String, Object> model) {
+ @RequestMapping("/weather")
+   String weather(Map<String, Object> model) {
      RelativisticModel.select();
-     Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
-     model.put("science", "19 grade Celsius");
-     return "hello";
+     model.put("thisIsWhatLinksToHTML", "19 grade Celsius");
+     return "weather";
    }
 
   @RequestMapping("/db")

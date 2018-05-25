@@ -62,7 +62,7 @@ public class Main {
    String hello(Map<String, Object> model) {
      RelativisticModel.select();
      Amount<Mass> m = Amount.valueOf("12 GeV").to(KILOGRAM);
-     model.put("science", "E=mc^2: 12 GeV = " + m.toString());
+     model.put("science", "19 grade Celsius");
      return "hello";
    }
 

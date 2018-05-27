@@ -53,6 +53,15 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
+  public class GetWeather {
+		long cityID = 681290;
+		String apiKey = "ae2e7a6fa29c84fd2f841303efa392f0";
+		String and ="APPID=";
+		String s = "api.openweathermap.org/data/2.5/weather?id=";
+		String call = s + cityID + and + s;
+		String url = "api.openweathermap.org/data/2.5/weather?id=681290APPID=ae2e7a6fa29c84fd2f841303efa392f0";
+  }
+
   @RequestMapping("/")
   String index() {
     return "index";
@@ -63,6 +72,13 @@ public class Main {
      RelativisticModel.select();
      model.put("thisIsWhatLinksToHTML", "19 grade Celsius");
      return "weather";
+   }
+
+ @RequestMapping("/time")
+   String time(Map<String, Object> model) {
+     RelativisticModel.select();
+     model.put("cateceasu", "7:30 AM");
+     return "time";
    }
 
   @RequestMapping("/db")

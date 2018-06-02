@@ -25,6 +25,7 @@ public class WeatherTest {
 			.exclude(ForecastRequestBuilder.Block.daily)
 			.exclude(ForecastRequestBuilder.Block.alerts)
 			.exclude(ForecastRequestBuilder.Block.flags)
+			.language(ForecastRequestBuilder.Language.en)
             .location(new GeoCoordinates(longitude, latitude)).build();
         DarkSkyClient client = new DarkSkyClient();
         String forecast = client.forecastJsonString(request);

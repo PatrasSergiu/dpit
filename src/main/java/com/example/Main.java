@@ -37,8 +37,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
+import tk.plogitech.darksky.forecast.*;
+import tk.plogitech.darksky.forecast.model.Latitude;
+import tk.plogitech.darksky.forecast.model.Longitude;
 
-import static javax.measure.unit.SI.KILOGRAM;
 
 @Controller
 @SpringBootApplication
@@ -49,6 +51,7 @@ public class Main {
 
   @Autowired
   private DataSource dataSource;
+
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);

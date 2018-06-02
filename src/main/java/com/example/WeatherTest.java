@@ -1,11 +1,12 @@
 package com.example;
 
-import tk.plogitech.darksky.*;
 import tk.plogitech.darksky.forecast.*;
 import tk.plogitech.darksky.forecast.model.Forecast;
 import tk.plogitech.darksky.forecast.model.Latitude;
 import tk.plogitech.darksky.forecast.model.Longitude;
+
 import tk.plogitech.darksky.forecast.model.Currently;
+
 
 public class WeatherTest {
 
@@ -33,8 +34,8 @@ public class WeatherTest {
 			return "Something went wrong";
 		}
 	}
+    public static void main(String[] args)  {
+  
 
-    public static void main(String[] args) {
-        
     }
 }

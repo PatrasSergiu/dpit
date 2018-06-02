@@ -15,7 +15,6 @@
  */
 
 package com.example;
-package tk.plogitech.darksky.forecast;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
@@ -37,7 +36,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
-import tk.plogitech.darksky.forecast;
+
 
 import static javax.measure.unit.SI.KILOGRAM;
 
@@ -55,25 +54,6 @@ public class Main {
     SpringApplication.run(Main.class, args);
   }
 
-  class getLocation {
-  	  public static double lat = 46.770439,lon = 23.591423;
-	  public static String weatherKey = "ffba03be60f52eca3bf1203c676f4081";
-	  public static String timeKey = "L9RV69672U59";
-  }
-
-   class getWeather {
-		ForecastRequest request = new ForecastRequestBuilder()
-        .key(new APIKey(weatherKey))
-        .location(new GeoCoordinates(new Longitude(getLocation.lon), new Latitude(getLocation.lat))).build();
-		DarkSkyClient client = new DarkSkyClient();
-		public static String weather = client.forecastJsonString(request);
-	}
-
-  class getTime {
-		
-  }
-
-
   @RequestMapping("/")
   String index() {
     return "index";
@@ -82,7 +62,8 @@ public class Main {
  @RequestMapping("/weather")
    String weather(Map<String, Object> model) {
      RelativisticModel.select();
-     model.put("thisIsWhatLinksToHTML", getWeather.weather);
+	 WeatherTest getW = new WeatherTest();
+     model.put("thisIsWhatLinksToHTML", getW.getWeather());
      return "weather";
    }
 

@@ -1,0 +1,31 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 40px;
+  color: white;
+  padding: 25px;
+  background-color: black;
+}
+
+#timpu {
+}
+
+#data{
+}
+
+#vreme{
+	position: fixed;
+    right: 3%;
+}
+
+#mesaju{
+	position: fixed;
+	top: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+    bottom: 10%;
+}
+
+#test{
+	position : fixed;
+	top:50%;
+}

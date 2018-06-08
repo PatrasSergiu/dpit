@@ -38,18 +38,11 @@ function loadWeather(){
 		{
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
-            var img = new Image();
-            var div = document.getElementById('iconvreme');
-            img.onload = function() {
-            div.appendChild(img);
-            };
-            img.src = '../icons/sleet.png';            
+            document.getElementById("iconvreme").src = "../sleet.png";			
 
-            
-/*var image = document.getElementById("iconvreme").src = "../sleet.png";			
 ///var image = document.getElementById("iconvreme").src = "../icons/sleet.png";
             ///= "../icons/" + myObj.currently.icon + ".PNG";
-*/			
+		
             document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
 		}
 

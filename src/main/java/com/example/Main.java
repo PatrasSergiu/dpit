@@ -27,6 +27,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.measure.quantity.Mass;
 import javax.sql.DataSource;
@@ -35,7 +37,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Map;
+import java.lang.Object.*;
 
 import tk.plogitech.darksky.forecast.*;
 import tk.plogitech.darksky.forecast.model.Latitude;
@@ -62,13 +66,12 @@ public class Main {
     return "index";
   }
 
- @RequestMapping("/weather")
-   String weather(Map<String, Object> model) {
-     RelativisticModel.select();
-	 WeatherTest getW = new WeatherTest();
-     model.put("thisIsWhatLinksToHTML", getW.getWeather());
-     return "weather";
-   }
+ @RequestMapping(value = "/weather", method = GET, produces = "application/json")
+ @ResponseBody
+public String theWeather() {
+	WeatherTest getW = new WeatherTest();
+    return getW.getWeather();
+}
 
  @RequestMapping("/time")
    String time(Map<String, Object> model) {

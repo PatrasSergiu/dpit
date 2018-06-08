@@ -36,10 +36,11 @@ function loadWeather(){
     xhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) 
 		{
-		document.getElementById("vreme").innerHTML = this.responseText;
+			var myJSON = this.responseText;
+			var myObj = JSON.parse(myJSON);
+			document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
 		}
 	};
-	
 	xhttp.send();
 }
 

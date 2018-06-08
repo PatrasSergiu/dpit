@@ -1,4 +1,4 @@
-function startTime() {
+﻿function startTime() {
 	var today = new Date();
 	var h = today.getHours();
 	var m = today.getMinutes();
@@ -38,6 +38,7 @@ function loadWeather(){
 		{
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
+			var image = document.getElementById("iconvreme").src= "icons/"myObj.currently.icon + ".png";
 			document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
 		}
 	};

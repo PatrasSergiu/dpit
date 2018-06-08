@@ -7,7 +7,6 @@ import tk.plogitech.darksky.forecast.model.Longitude;
 
 import tk.plogitech.darksky.forecast.model.Currently;
 
-
 public class WeatherTest {
 
 

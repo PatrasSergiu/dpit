@@ -74,14 +74,7 @@ public String theWeather() {
 	WeatherTest getW = new WeatherTest();
     return getW.getWeather();
 }
-
- @RequestMapping("/time")
-   String time(Map<String, Object> model) {
-     RelativisticModel.select();
-     model.put("cateceasu", "7:30 AM");
-     return "time";
-   }
-
+ 
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {

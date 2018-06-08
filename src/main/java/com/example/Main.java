@@ -18,6 +18,7 @@ package com.example;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.springframework.web.servlet.ModelAndView;
 import org.jscience.physics.model.RelativisticModel;
 import org.jscience.physics.amount.Amount;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +41,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
 import java.lang.Object.*;
-
 import tk.plogitech.darksky.forecast.*;
 import tk.plogitech.darksky.forecast.model.Latitude;
 import tk.plogitech.darksky.forecast.model.Longitude;
@@ -62,8 +62,10 @@ public class Main {
   }
 
   @RequestMapping("/")
-  String index() {
-    return "index";
+  public ModelAndView mirror () {
+    ModelAndView modelAndView = new ModelAndView();
+    modelAndView.setViewName("mirror");
+    return modelAndView;
   }
 
  @RequestMapping(value = "/weather", method = GET, produces = "application/json")

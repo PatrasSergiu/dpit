@@ -37,9 +37,8 @@ function loadWeather(){
 		if (this.readyState == 4 && this.status == 200) 
 		{
 			var myJSON = this.responseText;
-			var myObj = JSON.parse(myJSON);
-            document.getElementById('iconvreme').src = "../icons/sleet.png";
-
+			var myObj = JSON.parse(myJSON);    
+            document.getElementById('iconvreme').innerHTML = "../icons/sleet.png";
 ///var image = document.getElementById("iconvreme").src = "../icons/sleet.png";
             ///= "../icons/" + myObj.currently.icon + ".PNG";
 		

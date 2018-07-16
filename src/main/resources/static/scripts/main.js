@@ -30,7 +30,7 @@ function startDate(){
 }
 
 function loadWeather(){
-	var xhttp = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/weather");
+	var xhttp = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/currently");
 	if (!xhttp) 
 		throw new Error('CORS not supported');
     xhttp.onreadystatechange = function() {

@@ -68,13 +68,20 @@ public class Main {
     return modelAndView;
   }
 
- @RequestMapping(value = "/weather", method = GET, produces = "application/json")
+ @RequestMapping(value = "/currently", method = GET, produces = "application/json")
  @ResponseBody
-public String theWeather() {
-	WeatherTest getW = new WeatherTest();
+public String currentWeather() {
+	CurrentForecast getW = new CurrentForecast();
     return getW.getWeather();
 }
- 
+
+@RequestMapping(value = "/hourly", method = GET, produces = "application/json")
+@ResponseBody
+public String hourlyWeather() {
+    HourlyForecast getW = new HourlyForecast();
+    return getW.getWeather();
+}
+
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {

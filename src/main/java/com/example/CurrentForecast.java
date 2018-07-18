@@ -7,7 +7,7 @@ import tk.plogitech.darksky.forecast.model.Longitude;
 
 import tk.plogitech.darksky.forecast.model.Currently;
 
-public class WeatherTest {
+public class CurrentForecast {
 
 
     public static Longitude longitude = new Longitude(23.591423);
@@ -19,8 +19,8 @@ public class WeatherTest {
 		try {
 		ForecastRequest request = new ForecastRequestBuilder()
             .key(new APIKey(weatherKey))
-			.exclude(ForecastRequestBuilder.Block.minutely)
 			.exclude(ForecastRequestBuilder.Block.hourly)
+			.exclude(ForecastRequestBuilder.Block.minutely)
 			.exclude(ForecastRequestBuilder.Block.daily)
 			.exclude(ForecastRequestBuilder.Block.alerts)
 			.exclude(ForecastRequestBuilder.Block.flags)

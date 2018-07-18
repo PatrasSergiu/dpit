@@ -37,10 +37,20 @@ function loadWeather(){
 		if (this.readyState == 4 && this.status == 200) 
 		{
 			var myJSON = this.responseText;
+<<<<<<< HEAD
 			var myObj = JSON.parse(myJSON);
 			var image = document.getElementById("iconvreme").src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".png";
 			document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
+=======
+			var myObj = JSON.parse(myJSON);    
+            document.getElementById('iconvreme').innerHTML = "../icons/sleet.png";
+///var image = document.getElementById("iconvreme").src = "../icons/sleet.png";
+            ///= "../icons/" + myObj.currently.icon + ".PNG";
+		
+            document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
+>>>>>>> 46afc18d6d4993cd8bbc143367a1ba296027affd
 		}
+
 	};
 	xhttp.send();
 }

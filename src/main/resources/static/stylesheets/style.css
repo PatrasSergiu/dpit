@@ -2,14 +2,16 @@ html {
   font-family: 'Open Sans', sans-serif;
   font-size: 40px;
   color: white;
-  padding: 25px;
+  padding: 40px;
   background-color: black;
 }
 
 #timpu {
+	font-size: 30px;
 }
 
 #data{
+	font-size: 30px;
 }
 
 #vreme{

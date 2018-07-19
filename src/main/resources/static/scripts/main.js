@@ -24,22 +24,22 @@ function startDate(){
     "Noiembrie", "Decembrie"];
 	if(dd<10) {
 		dd = '0'+dd;
-	} 
+	}
 	today = dd + ' ' + monthNames[mm];
-	document.getElementById('data').innerHTML = today;	
+	document.getElementById('data').innerHTML = today;
 }
 
 function loadWeather(){
 	var xhttp = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/currently");
-	if (!xhttp) 
+	if (!xhttp)
 		throw new Error('CORS not supported');
     xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200) 
+		if (this.readyState == 4 && this.status == 200)
 		{
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
-			var image = document.getElementById("iconvreme").src= "https://baritiu-smart-mirror.herokuapp.com/src/main/resources/static/icons" + myObj.currently.icon + ".png";
-			document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
+			var image = document.getElementById("iconvreme").src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".png";
+			document.getElementById("vreme").innerHTML = Math.round(myObj.currently.temperature) + "°C";
 		}
 
 	};

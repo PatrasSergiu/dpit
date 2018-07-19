@@ -39,7 +39,7 @@ function loadWeather(){
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
 			var image = document.getElementById("iconvreme").src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".png";
-			document.getElementById("vreme").innerHTML = myObj.currently.temperature + "°C";
+			document.getElementById("vreme").innerHTML = Math.round(myObj.currently.temperature) + "°C";
 		}
 
 	};

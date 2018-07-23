@@ -1,24 +1,28 @@
 html {
   font-family: 'Open Sans', sans-serif;
-  font-size: 40px;
+  font-size: 60px;
   color: white;
-  padding: 40px;
   background-color: black;
 }
 
 #timpu {
-	font-size: 30px;
+	display: inline;
 }
 
 #data{
-	font-size: 30px;
+	display: inline;
 }
 
 #vreme{
-	position: fixed;
-    right: 3%;
+    
 }
 
+#sumar{
+}
+#temperatura{
+	display: inline;
+	
+}
 #mesaju{
 	position: fixed;
 	top: 90%;
@@ -26,7 +30,11 @@ html {
 	transform: translateX(-50%);
     bottom: 10%;
 }
-
+#iconvreme{
+	width:128px;
+	height:128px;
+	display: inline;
+}
 #test{
 	position : fixed;
 	top:50%;

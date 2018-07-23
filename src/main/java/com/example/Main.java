@@ -75,6 +75,13 @@ public String currentWeather() {
     return getW.getWeather();
 }
 
+@RequestMapping(value = "/daily", method = GET, produces = "application/json")
+@ResponseBody
+public String DailyWeather() {
+    DailyForecast getW = new DailyForecast();
+    return getW.getWeather();
+}
+
 @RequestMapping(value = "/hourly", method = GET, produces = "application/json")
 @ResponseBody
 public String hourlyWeather() {

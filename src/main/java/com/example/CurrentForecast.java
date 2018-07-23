@@ -24,7 +24,7 @@ public class CurrentForecast {
 			.exclude(ForecastRequestBuilder.Block.daily)
 			.exclude(ForecastRequestBuilder.Block.alerts)
 			.exclude(ForecastRequestBuilder.Block.flags)
-			.language(ForecastRequestBuilder.Language.en)
+			.language(ForecastRequestBuilder.Language.ru)
             .location(new GeoCoordinates(longitude, latitude)).build();
         DarkSkyClient client = new DarkSkyClient();
         String forecast = client.forecastJsonString(request);

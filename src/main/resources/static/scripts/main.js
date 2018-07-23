@@ -3,6 +3,7 @@
 	var h = today.getHours();
 	var m = today.getMinutes();
 	m = checkTime(m);
+	h = checkTime(h);
 	document.getElementById('timpu').innerHTML = h + ":" + m;
 	var t = setTimeout(startTime, 5000);
 }
@@ -17,16 +18,21 @@ function startDate(){
 	var dd = today.getDate();
 	var mm = today.getMonth(); //January is 0!
 	var yyyy = today.getFullYear();
+	var azi = today.getDay();
 	var monthNames = [
     "Ianuarie", "Februarie", "Martie",
     "Aprilie", "Mai", "Iunie", "Iulie",
     "August", "Septembrie", "Octombrie",
     "Noiembrie", "Decembrie"];
+	var dayNames = [
+	"Duminica",
+	"Luni", "Marti", "Miercuri",
+	"Joi","Vineri","Sambata"];
 	if(dd<10) {
 		dd = '0'+dd;
 	}
-	today = dd + ' ' + monthNames[mm];
-	document.getElementById('data').innerHTML = today;
+	today = dayNames[azi] +" "+ dd +" "+ monthNames[mm] ;
+	document.getElementById("data").innerHTML = today;
 }
 
 function loadWeather(){
@@ -39,7 +45,8 @@ function loadWeather(){
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
 			var image = document.getElementById("iconvreme").src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".png";
-			document.getElementById("text").innerHTML = Math.round(myObj.currently.temperature) + "°C";
+			document.getElementById("temperatura").innerHTML = Math.round(myObj.currently.temperature) + "°C";
+			document.getElementById("sumar").innerHTML = myObj.currently.summary;
 		}
 
 	};

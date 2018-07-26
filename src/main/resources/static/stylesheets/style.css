@@ -13,29 +13,24 @@ html {
 	display: inline;
 }
 
-#vreme{
-    
+.temperatura{
+	display: inline;
 }
 
-#sumar{
-}
-#temperatura{
-	display: inline;
-	
-}
-#mesaju{
-	position: fixed;
-	top: 90%;
-	left: 50%;
-	transform: translateX(-50%);
-    bottom: 10%;
-}
-#iconvreme{
+.icon-vreme{
 	width:128px;
 	height:128px;
-	display: inline;
 }
-#test{
-	position : fixed;
-	top:50%;
+
+.viitor{
+	margin-top:35px;
+	display:block;
+}
+
+.right{
+	float:right;
+}
+
+.stack{
+	position: absolute;
 }

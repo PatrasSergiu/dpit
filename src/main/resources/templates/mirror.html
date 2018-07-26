@@ -7,15 +7,30 @@
 		<link href="stylesheets/style.css" rel="stylesheet" type="text/css">
 
 	</head>
-	<body onload="startDate(); startTime(); loadWeather();">
+	<body onload="startDate(); startTime(); loadWeather(); loadFuture();">
 		<script src="scripts/main.js"></script>
 		<div id="data"></div>
 		<div id="timpu"></div>
-		<div id="sumar" ></div>
+		<div id="sumar"></div>
 		
 		<div id="vreme">
-			<img id="iconvreme">
-			<span id="temperatura"> </span>
+			<img class="icon-vreme" src="partly-cloudy-day.png">
+			<span class="temperatura">  23°C</span>
+		</div>
+		<div class="viitor">
+			<img class="icon-vreme" src="partly-cloudy-day.png">
+			<span class="ora stack" > 15:00</span>
+			<span class="temperatura">  23°C</span>
+		</div>
+		<div class="viitor">
+			<img class="icon-vreme" src="partly-cloudy-day.png">
+			<span class="ora stack" > </span>
+			<span class="temperatura">  23°C</span>
+		</div>
+		<div class="viitor">
+			<img class="icon-vreme" src="partly-cloudy-day.png">
+			<span class="ora stack" > </span>
+			<span class="temperatura">  23°C</span>
 		</div>
 	</body>
 </html>

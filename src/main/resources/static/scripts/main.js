@@ -53,6 +53,27 @@ function loadWeather(){
 	xhttp.send();
 }
 
+function loadFuture(){
+	var xhttp = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/hourly");
+	if (!xhttp)
+		throw new Error('CORS not supported');
+    xhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200)
+		{
+			var myJSON = this.responseText;
+			var myObj = JSON.parse(myJSON);
+			for(var i=0; i<3;i++)
+			{
+				var image = document.getElementsByClassName("viitor")[i].getElementsByTagName('img')[0].src = "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.hourly.data[(i+1)*3].icon + ".png";
+				var d = new Date(myObj.hourly.data[(i+1)*3].time * 1000);
+				document.getElementsByClassName("viitor")[i].getElementsByClassName("ora")[0].innerHTML = d.getHours()+ ":00";
+				document.getElementsByClassName("viitor")[i].getElementsByClassName("temperatura")[0].innerHTML = Math.round(myObj.hourly.data[(i+1)*3].temperature) + "°C";
+			}
+		}
+	};
+	xhttp.send();
+}
+
 function createCORSRequest(method, url) {
   var xhr = new XMLHttpRequest();
   if ("withCredentials" in xhr) {

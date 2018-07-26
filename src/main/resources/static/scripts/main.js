@@ -36,42 +36,53 @@ function startDate(){
 }
 
 function loadWeather(){
-	var xhttp = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/currently");
-	if (!xhttp)
+	var creq = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/currently");
+	if (!creq)
 		throw new Error('CORS not supported');
-    xhttp.onreadystatechange = function() {
+    creq.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200)
 		{
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
 			var image = document.getElementById("iconvreme").src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".png";
 			document.getElementById("temperatura").innerHTML = Math.round(myObj.currently.temperature) + "°C";
-			document.getElementById("sumar").innerHTML = myObj.currently.summary;
 		}
 
 	};
-	xhttp.send();
-}
-
-function loadFuture(){
-	var xhttp = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/hourly");
-	if (!xhttp)
-		throw new Error('CORS not supported');
-    xhttp.onreadystatechange = function() {
-		if (this.readyState == 4 && this.status == 200)
-		{
-			var myJSON = this.responseText;
-			var myObj = JSON.parse(myJSON);
-			for(var i=0; i<3;i++)
-			{
-				var image = document.getElementsByClassName("viitor")[i].getElementsByTagName('img')[0].src = "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.hourly.data[(i+1)*3].icon + ".png";
-				var d = new Date(myObj.hourly.data[(i+1)*3].time * 1000);
-				document.getElementsByClassName("viitor")[i].getElementsByClassName("ora")[0].innerHTML = d.getHours()+ ":00";
-				document.getElementsByClassName("viitor")[i].getElementsByClassName("temperatura")[0].innerHTML = Math.round(myObj.hourly.data[(i+1)*3].temperature) + "°C";
-			}
-		}
-	};
-	xhttp.send();
+	creq.send();
+	
+	var hreq = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/hourly");
+    	if (!hreq)
+    		throw new Error('CORS not supported');
+        hreq.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200)
+    		{
+    		    myJSON = this.responseText;
+    		    myObj = JSON.parse(myJSON);
+    			for(var i=0; i<3;i++)
+    			{
+    				image = document.getElementsByClassName("viitor")[i].getElementsByTagName('img')[0].src = "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.hourly.data[(i+1)*3].icon + ".png";
+    				var d = new Date(myObj.hourly.data[(i+1)*3].time * 1000);
+    				document.getElementsByClassName("viitor")[i].getElementsByClassName("ora")[0].innerHTML = d.getHours()+ ":00";
+    				document.getElementsByClassName("viitor")[i].getElementsByClassName("temperatura")[0].innerHTML = Math.round(myObj.hourly.data[(i+1)*3].temperature) + "°C";
+    			}
+    		}
+    	};
+    	hreq.send();
+    	
+    	var dreq = createCORSRequest("GET","https://baritiu-smart-mirror.herokuapp.com/daily");
+    	    if (!dreq)
+                		throw new Error('CORS not supported');
+                    dreq.onreadystatechange = function() {
+                		if (this.readyState == 4 && this.status == 200)
+                		{
+                		    myJSON = this.responseText;
+                		    myObj = JSON.parse(myJSON);
+                		    document.getElementById("sumar").innerHTML = myObj.daily.summary;
+                		}
+                	};
+                	dreq.send();
+	
 }
 
 function createCORSRequest(method, url) {

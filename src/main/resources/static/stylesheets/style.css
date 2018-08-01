@@ -1,36 +1,60 @@
 html {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 60px;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 35px;
   color: white;
   background-color: black;
 }
 
-#timpu {
-	display: inline;
+.temperatura-curent{
+	display:inline;
 }
-
-#data{
-	display: inline;
-}
-
 .temperatura{
 	display: inline;
 }
 
 .icon-vreme{
-	width:128px;
-	height:128px;
+	width:64px;
+	height:64px;
 }
 
 .viitor{
 	margin-top:35px;
-	display:block;
+	display:inline;
+	padding-right: 35px;
+	
 }
-
+.container{
+	position:fixed;
+	top:75%;
+}
 .right{
 	float:right;
 }
 
 .stack{
 	position: absolute;
+}
+
+#curentt{
+	width:128px;
+	height:128px;
+	vertical-align:middle;
+}
+
+#timpu {
+	display: inline;
+	font-size:70px;
+}
+
+#data{
+	display: inline;
+}
+
+#vreme{
+    font-size:90px;
+	text-align:middle;
+}
+
+#sumar{
+	padding-top:10%;
 }

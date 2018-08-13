@@ -61,7 +61,7 @@ function loadWeather(){
     		    myObj = JSON.parse(myJSON);
     			for(var i=0; i<3;i++)
     			{
-    				image = document.getElementsByClassName("viitor")[i].getElementsByTagName('img')[0].src = "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.hourly.data[(i+1)*3].icon + ".png";
+    				image = document.getElementsByClassName("viitor")[i].getElementsByTagName('img')[0].src = "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.hourly.data[(i+1)*3].icon + ".svg";
     				var d = new Date(myObj.hourly.data[(i+1)*3].time * 1000);
     				document.getElementsByClassName("viitor")[i].getElementsByClassName("ora")[0].innerHTML = d.getHours()+ ":00";
     				document.getElementsByClassName("viitor")[i].getElementsByClassName("temperatura")[0].innerHTML = Math.round(myObj.hourly.data[(i+1)*3].temperature) + "°C";

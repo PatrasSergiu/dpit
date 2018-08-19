@@ -26,6 +26,13 @@
 
   <dependencies>
 
+    <!-- https://mvnrepository.com/artifact/com.google.code.geocoder-java/geocoder-java -->
+    <dependency>
+      <groupId>com.google.code.geocoder-java</groupId>
+      <artifactId>geocoder-java</artifactId>
+      <version>0.16</version>
+    </dependency>
+
     <dependency>
       <groupId>com.twilio.sdk</groupId>
       <artifactId>twilio</artifactId>

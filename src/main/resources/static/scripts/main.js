@@ -44,7 +44,7 @@ function loadWeather(){
 		{
 			var myJSON = this.responseText;
 			var myObj = JSON.parse(myJSON);
-			var image = document.getElementsByClassName("icon-vreme")[0].src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".svg";
+			var image = document.getElementsByClassName("icon-vreme")[0].src= "https://baritiu-smart-mirror.herokuapp.com/icons/" + myObj.currently.icon + ".png";
 			document.getElementsByClassName("temperatura-curent")[0].innerHTML = Math.round(myObj.currently.temperature) + "°C";
 		}
 

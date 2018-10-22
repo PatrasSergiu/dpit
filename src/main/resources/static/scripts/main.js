@@ -84,6 +84,7 @@ function loadWeather(){
                 	dreq.send();
 
 	var reload = setTimeout(loadWeather,6000000);
+	location.reload()
 	
 }
 
